@@ -1,0 +1,30 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+
+.root {
+  background-color: #000000;
+}
+
+.page {
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1280px;
+  font-family: "Inter", "Arial", sans-serif;
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  padding: 45px 0 0;
+  margin: 0 200px;
+}
+
+.header__logo {
+}
