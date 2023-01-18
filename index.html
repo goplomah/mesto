@@ -21,25 +21,108 @@
   <body class="root">
     <div class="page">
       <header class="header">
-          <a href="/" class="header__link"><div class="header__logo"><img src="./images/logo.png" alt="логотип сайта место."></div></a>
+        <a href="/" class="header__link">
+            <img src="./images/logo.png" alt="логотип сайта место." class="header__logo"/>
+          </a>
       </header>
       <main class="content">
         <section class="profile">
-            <div class="profile__wrapper">
-                <div class="profile__avatar">
-                    <img src="./images/profile__avatar.png" alt="Жак-Ив Кусто." class="profile__image">
-                </div>
-                <div class="profile__info">
-                    <div class="profile__name-wrapper">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button type="button" class="button-edit"></button>
-                    </div>
-                    <p class="profile__job">Исследователь океана</p>
-                </div>
+          <div class="profile__wrapper">
+              <img
+                src="./images/profile-avatar.png"
+                alt="Жак-Ив Кусто."
+                class="profile__avatar"
+              />
+            <div class="profile__info">
+              <div class="profile__name-wrapper">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button type="button" class="button-edit"></button>
+              </div>
+              <p class="profile__job">Исследователь океана</p>
             </div>
-            <button type="button" class="button-add"></button>
+          </div>
+          <button type="button" class="button-add"></button>
+        </section>
+        <section
+          class="places"
+          aria-label="сетка карточек красивых мест России."
+        >
+          <ul class="places__cards">
+            <li class="places__item">
+              <figure class="places__image-wrapper">
+                <img
+                  src="./images/places__saint-petersburg(o).jpg"
+                  alt="развод Дворцового моста." class="places__image"
+                />
+              </figure>
+              <figcaption class="places__discription">
+                <p class="places__text">Санкт-Петербург</p>
+                <button type="button" class="places__button-like places__button-like_active"></button>
+              </figcaption>
+            </li>
+            <li class="places__item">
+              <figure class="places__image-wrapper">
+                <img
+                  src="./images/places__kareliya(o).jpg"
+                  alt="леса Карелии."
+                  class="places__image"
+                />
+              </figure>
+              <figcaption class="places__discription">
+                <p class="places__text">Карелия</p>
+                <button type="button" class="places__button-like places__button-like_active"></button>
+              </figcaption>
+            </li>
+            <li class="places__item">
+              <figure class="places__image-wrapper">
+                <img
+                  src="./images/places__mountain-parus(o).jpg"
+                  alt="скала похожая на парус."
+                  class="places__image"
+                />
+              </figure>
+              <figcaption class="places__discription">
+                <p class="places__text">Скала Парус</p>
+                <button type="button" class="places__button-like places__button-like_active"></button>
+              </figcaption>
+            </li>
+            <li class="places__item">
+              <figure class="places__image-wrapper">
+                <img
+                  src="./images/places__belogor'e(o).jpg"
+                  alt="храм, расположенный в меловых горах."
+                  class="places__image"
+                />
+              </figure>
+              <figcaption class="places__discription">
+                <p class="places__text">Белогорье</p>
+                <button type="button" class="places__button-like places__button-like_active"></button>
+              </figcaption>
+            </li>
+            <li class="places__item">
+              <figure class="places__image-wrapper">
+                <img src="./images/places__kareliya-2(o).jpg" alt="деревянная дорога в лесу." class="places__image">
+              </figure>
+              <figcaption class="places__discription">
+                <p class="places__text">Ленинградская область</p>
+                <button type="button" class="places__button-like places__button-like_active"></button>
+              </figcaption>
+            </li>
+            <li class="places__item">
+              <figure class="places__image-wrapper">
+                <img src="./images/places__leningradskaya-oblast'(o).jpg" alt="заснеженные ели в лесую" class="places__image">
+              </figure>
+              <figcaption class="places__discription">
+                <p class="places__text">Тайга</p>
+                <button type="button" class="places__button-like places__button-like_active"></button>
+              </figcaption>
+            </li>
+          </ul>
         </section>
       </main>
+      <footer class="footer">
+        © 2022 Maks Subochev
+      </footer>
     </div>
   </body>
 </html>
