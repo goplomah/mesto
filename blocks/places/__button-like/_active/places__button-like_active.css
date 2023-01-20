@@ -1,0 +1,9 @@
+.places__button-like_active {
+    width: 22px;
+    height: 19px;
+    background: transparent url(../../../../images/places__like-button_active.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+  }
