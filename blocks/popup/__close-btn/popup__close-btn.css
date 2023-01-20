@@ -2,7 +2,7 @@
     position: absolute;
     top: -40px;
     right: -40px;
-    background: transparent url(../../../images/popup__edit-close-btn.png);
+    background: transparent url(../../../images/popup__button-close.svg);
     border: none;
     cursor: pointer;
     transition: .5s linear;

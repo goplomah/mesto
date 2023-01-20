@@ -8,6 +8,7 @@
     font-size: 18px;
     line-height: 21.78px;
     color: #fff;
+    border: none;
     border-radius: 2px;
     transition: .5s linear;
     cursor: pointer;
@@ -18,6 +19,7 @@
       margin-top: 45px;
       font-size: 14px;
     line-height: 16.94px;
+    height: 46px;
     }
   }
   

@@ -4,7 +4,7 @@
     transition: 0.5s linear;
     cursor: pointer;
     border: none;
-    background: transparent url(../../../images/places__like.png);
+    background: transparent url(../../../images/places__button-like.svg);
     background-size: contain;
     background-repeat: no-repeat;
   }

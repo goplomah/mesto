@@ -18,3 +18,9 @@
   .form__input:first-of-type {
     margin: 0;
   }
+
+  @media screen and (max-width: 616px) {
+    .form__input {
+      padding-bottom: 8px;
+    }
+  }
