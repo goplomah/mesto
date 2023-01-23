@@ -32,7 +32,6 @@ function handleFormSubmit (evt) {
 
     profileNameElement.textContent = nameInput.value;
     profileJobElement.textContent = jobInput.value;
-
     removePopupElementVisibility();
 }
 
