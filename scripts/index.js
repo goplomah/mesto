@@ -37,9 +37,11 @@ function handleFormSubmit (evt) {
 
 formElement.addEventListener('submit', handleFormSubmit);
 
-  // const placesLikeButtonElement = document.querySelector('.places__button-like');
+  const placesLikeButtonElement = document.querySelectorAll('.places__button-like');
   // const togglePlacesLikeButtonElement = function() {
   //   placesLikeButtonElement.classList.toggle('places__button-like_active');
   // }
-
+    placesLikeButtonElement.addEventListener('click', function(evt) {
+      evt.target.classList.toggle('places__button-like_active');
+    });
   // placesLikeButtonElement.addEventListener('click', togglePlacesLikeButtonElement);
