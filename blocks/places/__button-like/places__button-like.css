@@ -11,4 +11,5 @@
   
   .places__button-like:hover {
     opacity: 0.5;
+    scale: 1.1;
   }

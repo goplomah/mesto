@@ -24,6 +24,7 @@
 @import url(../blocks/places/__text/places__text.css);
 @import url(../blocks/places/__button-like/places__button-like.css);
 @import url(../blocks/places/__button-like/_active/places__button-like_active.css);
+@import url(../blocks/places/__button-trash/places__button-trash.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
@@ -33,3 +34,18 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__send/form__send.css);
+
+.popup__image {
+  max-width: 75hw;
+  max-height: 75vh;
+}
+
+.popup__discription {
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.popup__text {
+  font-size: 12px;
+  line-height: 14.52px;
+}

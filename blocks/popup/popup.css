@@ -8,7 +8,10 @@
     top: 0;
     right: 0;
     bottom: 0;
-    display: none;
+    display: flex;
+    opacity: 0;
+  transition: opacity 0.35s linear;
+  z-index: -100;
   }
   
   @media screen and (max-width: 616px) {

@@ -60,7 +60,7 @@
           aria-label="сетка карточек красивых мест России."
         >
           <ul class="places__cards">
-            <li class="places__item">
+            <!-- <li class="places__item">
               <figure class="places__image-wrapper">
                 <img
                   src="./images/places__saint-petersburg(o).jpg"
@@ -114,7 +114,7 @@
             <li class="places__item">
               <figure class="places__image-wrapper">
                 <img
-                  src="./images/places__belogor'e(o).jpg"
+                  src="./images/places__belogore(o).jpg"
                   alt="храм, расположенный в меловых горах."
                   class="places__image"
                 />
@@ -146,10 +146,10 @@
               </figure>
             </li>
             <li class="places__item">
-              <figure class="places__image-wrapper">
+              <figure class=" ">
                 <img
-                  src="./images/places__leningradskaya-oblast'(o).jpg"
-                  alt="заснеженные ели в лесую"
+                  src="./images/places__leningradskaya-oblast(o).jpg"
+                  alt="заснеженные ели в лесу."
                   class="places__image"
                 />
                 <figcaption class="places__discription">
@@ -161,20 +161,40 @@
                   ></button>
                 </figcaption>
               </figure>
-            </li>
+            </li> -->
+            <template class="template__card">
+              <li class="places__item">
+                <figure class="places__image-wrapper">
+                  <img
+                    src=""
+                    alt=""
+                    class="places__image"
+                  />
+                  <figcaption class="places__discription">
+                    <p class="places__text"></p>
+                    <button
+                      type="button"
+                      class="places__button-like"
+                      aria-label="кнопка лайка"
+                    ></button>
+                  </figcaption>
+                  <button type="button" class="places__button-trash" aria-label="кнопка удаления"></button>
+                </figure>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
-      <footer class="footer">© 2022 Maks Subochev</footer>
-      <div class="popup">
-        <div class="popup__container">
+      <footer class="footer">© 2023 Maks Subochev</footer>
+      <div class="popup popup_type_edit">
+        <div class="popup__container popup__container_type_edit">
           <button
             type="button"
-            class="popup__close-btn"
+            class="popup__close-btn popup__close-btn_type_edit"
             aria-label="кнопка закрытия модального окна"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="form" name="profile-form">
+          <form class="form form_type_edit" name="profile-form">
             <input
               type="text"
               name="name"
@@ -189,6 +209,52 @@
             />
             <button type="submit" class="form__send">Сохранить</button>
           </form>
+        </div>
+      </div>
+      <div class="popup popup_type_add">
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__close-btn popup__close-btn_type_add"
+            aria-label="кнопка закрытия модального окна"
+          ></button>
+          <h2 class="popup__title">Новое место</h2>
+          <form class="form form_type_add" name="add-form">
+            <input
+              type="text"
+              name="title"
+              class="form__input form__input_name_title"
+              placeholder="Название"
+              required
+            />
+            <input
+              type="url"
+              name="link"
+              class="form__input form__input_name_link"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <button type="submit" class="form__send">Создать</button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup_type_image">
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__close-btn popup__close-btn_type_image"
+            aria-label="кнопка закрытия модального окна"
+          ></button>
+          <figure class="popup__image-wrapper">
+            <img
+                    src=""
+                    alt="развод Дворцового моста."
+                    class="popup__image"
+                  />
+                  <figcaption class="popup__discription">
+                    <p class="popup__text"></p>
+                  </figcaption>
+          </figure>
         </div>
       </div>
     </div>
