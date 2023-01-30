@@ -17,11 +17,13 @@
       href="./images/favicons/favicon/favicon.ico"
       type="image/x-icon"
     />
+    <script src="./scripts/cards.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
   </head>
   <body class="root">
     <div class="page">
       <header class="header">
-        <a href="/" class="header__link">
+        <a href="https://goplomah.github.io/mesto/" class="header__link">
           <img
             src="./images/header__logo.svg"
             alt="логотип сайта место."
@@ -60,108 +62,6 @@
           aria-label="сетка карточек красивых мест России."
         >
           <ul class="places__cards">
-            <!-- <li class="places__item">
-              <figure class="places__image-wrapper">
-                <img
-                  src="./images/places__saint-petersburg(o).jpg"
-                  alt="развод Дворцового моста."
-                  class="places__image"
-                />
-                <figcaption class="places__discription">
-                  <p class="places__text">Санкт-Петербург</p>
-                  <button
-                    type="button"
-                    class="places__button-like"
-                    aria-label="кнопка лайка"
-                  ></button>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="places__item">
-              <figure class="places__image-wrapper">
-                <img
-                  src="./images/places__kareliya(o).jpg"
-                  alt="леса Карелии."
-                  class="places__image"
-                />
-                <figcaption class="places__discription">
-                  <p class="places__text">Карелия</p>
-                  <button
-                    type="button"
-                    class="places__button-like"
-                    aria-label="кнопка лайка"
-                  ></button>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="places__item">
-              <figure class="places__image-wrapper">
-                <img
-                  src="./images/places__mountain-parus(o).jpg"
-                  alt="скала похожая на парус."
-                  class="places__image"
-                />
-                <figcaption class="places__discription">
-                  <p class="places__text">Скала Парус</p>
-                  <button
-                    type="button"
-                    class="places__button-like"
-                    aria-label="кнопка лайка"
-                  ></button>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="places__item">
-              <figure class="places__image-wrapper">
-                <img
-                  src="./images/places__belogore(o).jpg"
-                  alt="храм, расположенный в меловых горах."
-                  class="places__image"
-                />
-                <figcaption class="places__discription">
-                  <p class="places__text">Белогорье</p>
-                  <button
-                    type="button"
-                    class="places__button-like"
-                    aria-label="кнопка лайка"
-                  ></button>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="places__item">
-              <figure class="places__image-wrapper">
-                <img
-                  src="./images/places__kareliya-2(o).jpg"
-                  alt="деревянная дорога в лесу."
-                  class="places__image"
-                />
-                <figcaption class="places__discription">
-                  <p class="places__text">Ленинградская область</p>
-                  <button
-                    type="button"
-                    class="places__button-like"
-                    aria-label="кнопка лайка"
-                  ></button>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="places__item">
-              <figure class=" ">
-                <img
-                  src="./images/places__leningradskaya-oblast(o).jpg"
-                  alt="заснеженные ели в лесу."
-                  class="places__image"
-                />
-                <figcaption class="places__discription">
-                  <p class="places__text">Тайга</p>
-                  <button
-                    type="button"
-                    class="places__button-like"
-                    aria-label="кнопка лайка"
-                  ></button>
-                </figcaption>
-              </figure>
-            </li> -->
             <template class="template__card">
               <li class="places__item">
                 <figure class="places__image-wrapper">
@@ -185,7 +85,7 @@
           </ul>
         </section>
       </main>
-      <footer class="footer">© 2023 Maks Subochev</footer>
+      <footer class="footer">© 2023 by Maks S.</footer>
       <div class="popup popup_type_edit">
         <div class="popup__container popup__container_type_edit">
           <button
@@ -239,7 +139,7 @@
         </div>
       </div>
       <div class="popup popup_type_image">
-        <div class="popup__container">
+        <div class="popup__container popup__container_type_image">
           <button
             type="button"
             class="popup__close-btn popup__close-btn_type_image"
@@ -248,7 +148,7 @@
           <figure class="popup__image-wrapper">
             <img
                     src=""
-                    alt="развод Дворцового моста."
+                    alt=""
                     class="popup__image"
                   />
                   <figcaption class="popup__discription">
@@ -258,6 +158,5 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
   </body>
 </html>

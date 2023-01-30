@@ -10,8 +10,8 @@
     bottom: 0;
     display: flex;
     opacity: 0;
-  transition: opacity 0.35s linear;
-  z-index: -100;
+    visibility: hidden;
+  transition: visibility .25s, opacity .25s linear;
   }
   
   @media screen and (max-width: 616px) {
