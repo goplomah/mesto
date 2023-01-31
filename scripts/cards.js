@@ -1,7 +1,7 @@
 const initialCards = [
     {
       name: "Санкт-Петербург",
-      link: "../images/places__saint-petersburg(o).jpg",
+      link: "./images/places__saint-petersburg(o).jpg",
       alt: "развод Дворцового моста.",
     },
     {
