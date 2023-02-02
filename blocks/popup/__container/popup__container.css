@@ -18,6 +18,6 @@
 
   @media screen and (max-width: 800px) and (orientation: landscape) {
     .popup__container {
-      transform: scale(0.7);
+       transform: scale(0.7);
     }
   }

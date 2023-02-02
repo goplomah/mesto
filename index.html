@@ -65,11 +65,7 @@
             <template class="template__card">
               <li class="places__item">
                 <figure class="places__image-wrapper">
-                  <img
-                    src=""
-                    alt=""
-                    class="places__image"
-                  />
+                  <img src="#" alt="" class="places__image" />
                   <figcaption class="places__discription">
                     <p class="places__text"></p>
                     <button
@@ -78,7 +74,11 @@
                       aria-label="кнопка лайка"
                     ></button>
                   </figcaption>
-                  <button type="button" class="places__button-trash" aria-label="кнопка удаления"></button>
+                  <button
+                    type="button"
+                    class="places__button-trash"
+                    aria-label="кнопка удаления"
+                  ></button>
                 </figure>
               </li>
             </template>
@@ -90,7 +90,7 @@
         <div class="popup__container popup__container_type_edit">
           <button
             type="button"
-            class="popup__close-btn popup__close-btn_type_edit"
+            class="popup__close-btn"
             aria-label="кнопка закрытия модального окна"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -115,7 +115,7 @@
         <div class="popup__container">
           <button
             type="button"
-            class="popup__close-btn popup__close-btn_type_add"
+            class="popup__close-btn"
             aria-label="кнопка закрытия модального окна"
           ></button>
           <h2 class="popup__title">Новое место</h2>
@@ -142,18 +142,14 @@
         <div class="popup__container popup__container_type_image">
           <button
             type="button"
-            class="popup__close-btn popup__close-btn_type_image"
+            class="popup__close-btn"
             aria-label="кнопка закрытия модального окна"
           ></button>
           <figure class="popup__image-wrapper">
-            <img
-                    src=""
-                    alt=""
-                    class="popup__image"
-                  />
-                  <figcaption class="popup__discription">
-                    <p class="popup__text"></p>
-                  </figcaption>
+            <img src="#" alt="" class="popup__image" />
+            <figcaption class="popup__discription">
+              <p class="popup__text"></p>
+            </figcaption>
           </figure>
         </div>
       </div>
