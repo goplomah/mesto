@@ -32,7 +32,7 @@ function closePopup(item) {
 }
 
 // закрытие любого модального окна по клику
-// на крестик или оверлею:
+// на крестик или оверлею, нажатию кнопки esc:
 
 popups.forEach((item) => {
   item.addEventListener("mousedown", (evt) => {
@@ -43,8 +43,14 @@ popups.forEach((item) => {
       closePopup(item);
     }
   });
-});
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(item);
+    }
+  })
+  });
 
+  
 // открытие формы редактирования профиля и
 // заполнение input'ов информацией со странички:
 
