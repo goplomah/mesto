@@ -19,6 +19,7 @@
     />
     <script src="./scripts/cards.js" defer></script>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </head>
   <body class="root">
     <div class="page">
@@ -94,19 +95,29 @@
             aria-label="кнопка закрытия модального окна"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="form form_type_edit" name="profile-form">
+          <form class="form form_type_edit" name="profile-form" novalidate>
             <input
+              id="name-input"
               type="text"
               name="name"
               class="form__input form__input_name_name"
               placeholder="Имя"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span class="form__input-error name-input-error"></span>
             <input
+              id="job-input"
               type="text"
               name="job"
               class="form__input form__input_name_job"
               placeholder="О себе"
+              minlength="2"
+              maxlength="200"
+              required
             />
+            <span class="form__input-error"></span>
             <button type="submit" class="form__send">Сохранить</button>
           </form>
         </div>
@@ -127,6 +138,7 @@
               placeholder="Название"
               required
             />
+            <span class="form__input-error"></span>
             <input
               type="url"
               name="link"
@@ -134,6 +146,7 @@
               placeholder="Ссылка на картинку"
               required
             />
+            <span class="form__input-error"></span>
             <button type="submit" class="form__send">Создать</button>
           </form>
         </div>

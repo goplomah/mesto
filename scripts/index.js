@@ -19,15 +19,23 @@ const imageIntoImagePopup = imagePopup.querySelector(".popup__image");
 const imageTitleIntoImagePopup = imagePopup.querySelector(".popup__text");
 const popups = document.querySelectorAll(".popup");
 
+const closeEscPopup = (evt) => {
+  if (evt.key === 'Escape') {
+  closePopup(document.querySelector(".popup_opened"));
+  }
+};
+
 // общая функция открытия модального окна:
 
 function openPopup(item) {
+  document.addEventListener('keydown', closeEscPopup);
   item.classList.add("popup_opened");
 }
 
 // общая функция закрытия модального окна:
 
 function closePopup(item) {
+  document.removeEventListener('keydown', closeEscPopup);
   item.classList.remove("popup_opened");
 }
 
@@ -43,13 +51,7 @@ popups.forEach((item) => {
       closePopup(item);
     }
   });
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(item);
-    }
-  })
   });
-
   
 // открытие формы редактирования профиля и
 // заполнение input'ов информацией со странички:
