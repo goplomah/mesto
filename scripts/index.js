@@ -19,6 +19,7 @@ const imageIntoImagePopup = imagePopup.querySelector(".popup__image");
 const imageTitleIntoImagePopup = imagePopup.querySelector(".popup__text");
 const popups = document.querySelectorAll(".popup");
 
+//закрытие модального окна по кнопке esc
 const closeEscPopup = (evt) => {
   if (evt.key === 'Escape') {
   closePopup(document.querySelector(".popup_opened"));

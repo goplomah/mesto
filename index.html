@@ -117,8 +117,8 @@
               maxlength="200"
               required
             />
-            <span class="form__input-error"></span>
-            <button type="submit" class="form__send">Сохранить</button>
+            <span class="form__input-error job-input-error"></span>
+            <button type="submit" class="form__send form__send_disabled">Сохранить</button>
           </form>
         </div>
       </div>
@@ -130,24 +130,28 @@
             aria-label="кнопка закрытия модального окна"
           ></button>
           <h2 class="popup__title">Новое место</h2>
-          <form class="form form_type_add" name="add-form">
+          <form class="form form_type_add" name="add-form" novalidate >
             <input
+            id="add-title-input"
               type="text"
               name="title"
               class="form__input form__input_name_title"
               placeholder="Название"
+              minlength="2"
+              maxlength="30"
               required
             />
-            <span class="form__input-error"></span>
+            <span class="form__input-error add-title-input-error"></span>
             <input
+            id="add-url-input"
               type="url"
               name="link"
               class="form__input form__input_name_link"
               placeholder="Ссылка на картинку"
               required
             />
-            <span class="form__input-error"></span>
-            <button type="submit" class="form__send">Создать</button>
+            <span class="form__input-error add-url-input-error"></span>
+            <button type="submit" class="form__send form__send_disabled">Создать</button>
           </form>
         </div>
       </div>
