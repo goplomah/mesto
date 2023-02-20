@@ -6,7 +6,7 @@ const classes = {
     inputErrorClass: 'form__input_type_error'
   };
 
-  // функия, показывающая ошибку в поле
+  // функция, показывающая ошибку в поле
 const showInputError = (formElement, inputElement, errorMessage, classes) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(classes.inputErrorClass);
