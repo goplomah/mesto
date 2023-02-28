@@ -1,3 +1,7 @@
+import { initialCards } from "./cards.js";
+// import {Card} from "./Card.js";
+import {classes, FormValidation} from "./FormValidation.js";
+
 const templateCard = document
   .querySelector(".template__card")
   .content.querySelector(".places__item");
@@ -18,6 +22,12 @@ const linkInput = popupAddForm.querySelector(".form__input_name_link");
 const imageIntoImagePopup = imagePopup.querySelector(".popup__image");
 const imageTitleIntoImagePopup = imagePopup.querySelector(".popup__text");
 const popups = document.querySelectorAll(".popup");
+
+const profileFormValidation = new FormValidation(classes, popupEditForm);
+const addImageFormValidation = new FormValidation(classes, popupAddForm);
+
+profileFormValidation.enableValidation();
+addImageFormValidation.enableValidation();
 
 //закрытие модального окна по кнопке esc
 const closeEscPopup = (evt) => {
