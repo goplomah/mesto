@@ -21,7 +21,7 @@ class Card {
         };
 
         _toggleLike() {
-            this._element.classList.toggle("places__button-like_active");
+            this._buttonLike.classList.toggle("places__button-like_active");
         };
 
         _clickImage() {
@@ -36,7 +36,7 @@ class Card {
             .querySelector(".places__button-trash")
             .addEventListener("click", () => {this._deleteCard()});
 
-            this._element.querySelector(".places__button-like")
+            this._buttonLike
             .addEventListener("click", () => {this._toggleLike()});
 
             this._cardImage.addEventListener('click', () => {this._clickImage()});
@@ -49,6 +49,7 @@ class Card {
             this._cardImage.alt=this._alt;
             this._cardName=this._element.querySelector(".places__text");
             this._cardName.textContent=this._name;
+            this._buttonLike=this._element.querySelector(".places__button-like");
             
             this._setEventListeners();
             return this._element;
