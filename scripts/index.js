@@ -1,14 +1,14 @@
 import { initialCards } from "./cards.js";
-// import {Card} from "./Card.js";
+import {Card} from "./Card.js";
 import {classes, FormValidation} from "./FormValidation.js";
 
-const templateCard = document
-  .querySelector(".template__card")
-  .content.querySelector(".places__item");
+// const templateCard = document
+//   .querySelector(".template__card")
+//   .content.querySelector(".places__item");
 const listCard = document.querySelector(".places__cards");
 const popupEdit = document.querySelector(".popup_type_edit");
 const popupAdd = document.querySelector(".popup_type_add");
-const imagePopup = document.querySelector(".popup_type_image");
+// const imagePopup = document.querySelector(".popup_type_image");
 const popupEditOpenButton = document.querySelector(".button-edit");
 const popupEditForm = document.querySelector(".form_type_edit");
 const nameInput = popupEditForm.querySelector(".form__input_name_name");
@@ -19,15 +19,12 @@ const popupAddOpenButton = document.querySelector(".button-add");
 const popupAddForm = document.querySelector(".form_type_add");
 const titleInput = popupAddForm.querySelector(".form__input_name_title");
 const linkInput = popupAddForm.querySelector(".form__input_name_link");
-const imageIntoImagePopup = imagePopup.querySelector(".popup__image");
-const imageTitleIntoImagePopup = imagePopup.querySelector(".popup__text");
+// const imageIntoImagePopup = imagePopup.querySelector(".popup__image");
+// const imageTitleIntoImagePopup = imagePopup.querySelector(".popup__text");
 const popups = document.querySelectorAll(".popup");
 
-const profileFormValidation = new FormValidation(classes, popupEditForm);
-const addImageFormValidation = new FormValidation(classes, popupAddForm);
-
-profileFormValidation.enableValidation();
-addImageFormValidation.enableValidation();
+const profileFormValidation = new FormValidation(classes, popupEditForm).enableValidation();
+const addImageFormValidation = new FormValidation(classes, popupAddForm).enableValidation();
 
 //закрытие модального окна по кнопке esc
 const closeEscPopup = (evt) => {
@@ -90,38 +87,42 @@ popupEditForm.addEventListener("submit", (item) => {
 
 // функция удаления карточки со страницы:
 
-function deleteCard(item) {
-  item.target.closest(".places__item").remove();
-}
+// function deleteCard(item) {
+//   item.target.closest(".places__item").remove();
+// }
 
 // функция переключателя лайка карточки:
 
-function toggleLike(item) {
-  item.target.classList.toggle("places__button-like_active");
-}
+// function toggleLike(item) {
+//   item.target.classList.toggle("places__button-like_active");
+// }
 
 // создание карточки:
 
 function createCard(item) {
-  const card = templateCard.cloneNode(true);
-  const cardImage = card.querySelector(".places__image");
-  cardImage.src = item.link;
-  cardImage.alt = item.name;
-  card.querySelector(".places__text").textContent = item.name;
-  card
-    .querySelector(".places__button-trash")
-    .addEventListener("click", deleteCard);
-  card
-    .querySelector(".places__button-like")
-    .addEventListener("click", toggleLike);
-  cardImage.addEventListener("click", () => {
-    imageIntoImagePopup.src = item.link;
-    imageIntoImagePopup.alt = item.name;
-    imageTitleIntoImagePopup.textContent = item.name;
-    openPopup(imagePopup);
-  });
+  // const card = templateCard.cloneNode(true);
+  // const cardImage = card.querySelector(".places__image");
+  // cardImage.src = item.link;
+  // cardImage.alt = item.name;
+  // card.querySelector(".places__text").textContent = item.name;
+  // card
+  //   .querySelector(".places__button-trash")
+  //   .addEventListener("click", deleteCard);
+  // card
+  //   .querySelector(".places__button-like")
+  //   .addEventListener("click", toggleLike);
+  // cardImage.addEventListener("click", () => {
+  //   imageIntoImagePopup.src = item.link;
+  //   imageIntoImagePopup.alt = item.name;
+  //   imageTitleIntoImagePopup.textContent = item.name;
+  //   openPopup(imagePopup);
+  // });
+  // return card;
+  const card = new Card(item, ".template__card", openPopup).generateCard();
   return card;
 }
+
+
 
 function renderCards(initialCards) {
   const cards = initialCards.map(createCard);
