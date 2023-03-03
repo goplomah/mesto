@@ -8,7 +8,9 @@ class Card {
         this._imagePopup=document.querySelector(".popup_type_image");
         this._imageIntoImagePopup=this._imagePopup.querySelector(".popup__image");
         this._imageTitleIntoImagePopup=this._imagePopup.querySelector(".popup__text");
-    }
+        this._deleteCard = this._deleteCard.bind(this);
+        this._toggleLike = this._toggleLike.bind(this);
+        this._clickImage = this._clickImage.bind(this);    }
 
         _getTemplate() {
             const templateCard = document.querySelector(this._templateSelector).content.querySelector(".places__item");
@@ -34,12 +36,12 @@ class Card {
         _setEventListeners() {
             this._element
             .querySelector(".places__button-trash")
-            .addEventListener("click", () => this._deleteCard());
+            .addEventListener("click", this._deleteCard);
 
             this._buttonLike
-            .addEventListener("click", () => this._toggleLike());
+            .addEventListener("click", this._toggleLike);
 
-            this._cardImage.addEventListener('click', () => this._clickImage());
+            this._cardImage.addEventListener('click', this._clickImage);
         };
 
         generateCard() {
