@@ -34,12 +34,12 @@ class Card {
         _setEventListeners() {
             this._element
             .querySelector(".places__button-trash")
-            .addEventListener("click", () => {this._deleteCard()});
+            .addEventListener("click", () => this._deleteCard());
 
             this._buttonLike
-            .addEventListener("click", () => {this._toggleLike()});
+            .addEventListener("click", () => this._toggleLike());
 
-            this._cardImage.addEventListener('click', () => {this._clickImage()});
+            this._cardImage.addEventListener('click', () => this._clickImage());
         };
 
         generateCard() {
