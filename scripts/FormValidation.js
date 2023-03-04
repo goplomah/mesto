@@ -62,9 +62,6 @@ class FormValidation {
         this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
         this._toggleButtonSave();
-        this._formElement.addEventListener('submit', () => {
-                this._toggleButtonSave();
-        });
         this._inputList.forEach((inputElement) => {
           inputElement.addEventListener('input', () => {
             this._isValid(inputElement);
@@ -76,6 +73,14 @@ class FormValidation {
     enableValidation() {
            this._setEventListeners();
       };
+
+    resetValidation() {
+      this._toggleButtonSave();
+
+      this._inputList.forEach((inputElement) => {
+        this._hideInputError(inputElement);
+      });
+    };
 }
 
 

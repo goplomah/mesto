@@ -17,8 +17,11 @@ const titleInput = popupAddForm.querySelector(".form__input_name_title");
 const linkInput = popupAddForm.querySelector(".form__input_name_link");
 const popups = document.querySelectorAll(".popup");
 
-const popupEditFormValidation = new FormValidation(classes, popupEditForm).enableValidation();
-const popupAddFormValidation = new FormValidation(classes, popupAddForm).enableValidation();
+const popupEditFormValidation = new FormValidation(classes, popupEditForm);
+const popupAddFormValidation = new FormValidation(classes, popupAddForm);
+
+popupEditFormValidation.enableValidation();
+popupAddFormValidation.enableValidation();
 
 //закрытие модального окна по кнопке esc
 const closeEscPopup = (evt) => {
@@ -59,15 +62,10 @@ popups.forEach((popup) => {
 // заполнение input'ов информацией со странички:
 
 popupEditOpenButton.addEventListener("click", () => {
+  popupEditFormValidation.resetValidation();
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  nameInput.classList.remove('form__input_type_error');
-  jobInput.classList.remove('form__input_type_error');
-  const errorMessage = popupEdit.querySelectorAll('.form__input-error');
-  errorMessage.forEach(input => {
-    input.textContent = '';
-  });
 });
 
 // сохраниние формы:
@@ -97,6 +95,7 @@ renderCards(initialCards);
 // на страницу:
 
 popupAddOpenButton.addEventListener("click", () => {
+  popupAddFormValidation.resetValidation();
   openPopup(popupAdd);
 });
 
