@@ -1,6 +1,7 @@
 import { initialCards } from "./cards.js";
 import {Card} from "./Card.js";
 import {classes, FormValidation} from "./FormValidation.js";
+import { Section } from "./Section.js";
 
 const listCard = document.querySelector(".places__cards");
 const popupEdit = document.querySelector(".popup_type_edit");
@@ -23,29 +24,38 @@ const popupAddFormValidation = new FormValidation(classes, popupAddForm);
 popupEditFormValidation.enableValidation();
 popupAddFormValidation.enableValidation();
 
-//закрытие модального окна по кнопке esc
+function createCard(item) {
+  const card = new Card(item, ".template__card", openPopup).generateCard();
+  return card;
+}
+
+const rendererSection = new Section({items: initialCards, renderer: createCard}, ".places__cards");
+rendererSection.rendererItems();
+
+
+// закрытие модального окна по кнопке esc
 const closeEscPopup = (evt) => {
   if (evt.key === 'Escape') {
   closePopup(document.querySelector(".popup_opened"));
   }
-};
+};                                                          
 
 // общая функция открытия модального окна:
 
 function openPopup(popup) {
   document.addEventListener('keydown', closeEscPopup);
   popup.classList.add("popup_opened");
-}
+}                                                           
 
 // общая функция закрытия модального окна:
 
 function closePopup(popup) {
   document.removeEventListener('keydown', closeEscPopup);
   popup.classList.remove("popup_opened");
-}
+}                                                            
 
 // закрытие любого модального окна по клику
-// на крестик или оверлею, нажатию кнопки esc:
+// на крестик или оверлею:
 
 popups.forEach((popup) => {
   popup.addEventListener("mousedown", (evt) => {
@@ -56,7 +66,7 @@ popups.forEach((popup) => {
       closePopup(popup);
     }
   });
-  });
+  });                                                          
   
 // открытие формы редактирования профиля и
 // заполнение input'ов информацией со странички:
@@ -79,17 +89,14 @@ popupEditForm.addEventListener("submit", (item) => {
 
 // создание карточки:
 
-function createCard(item) {
-  const card = new Card(item, ".template__card", openPopup).generateCard();
-  return card;
-}
 
-function renderCards(initialCards) {
-  const cards = initialCards.map(createCard);
-  listCard.prepend(...cards);
-}
 
-renderCards(initialCards);
+// function renderCards(initialCards) {
+//   const cards = initialCards.map(createCard);
+//   listCard.prepend(...cards);
+// }
+
+// renderCards(initialCards);
 
 // открытие модального окна добавления карточки
 // на страницу:
