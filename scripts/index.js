@@ -2,6 +2,7 @@ import { initialCards } from "./cards.js";
 import {Card} from "./Card.js";
 import {classes, FormValidation} from "./FormValidation.js";
 import { Section } from "./Section.js";
+import { PopupWithImage } from "./PopupWithImage.js";
 
 const listCard = document.querySelector(".places__cards");
 const popupEdit = document.querySelector(".popup_type_edit");
@@ -24,14 +25,10 @@ const popupAddFormValidation = new FormValidation(classes, popupAddForm);
 popupEditFormValidation.enableValidation();
 popupAddFormValidation.enableValidation();
 
-function createCard(item) {
-  const card = new Card(item, ".template__card", openPopup).generateCard();
-  return card;
-}
-
 const rendererSection = new Section({items: initialCards, renderer: createCard}, ".places__cards");
 rendererSection.rendererItems();
 
+const popupWithImage = new PopupWithImage('.popup_type_image');
 
 // закрытие модального окна по кнопке esc
 const closeEscPopup = (evt) => {
@@ -89,6 +86,10 @@ popupEditForm.addEventListener("submit", (item) => {
 
 // создание карточки:
 
+function createCard(item) {
+  const card = new Card(item, ".template__card", openPopup).generateCard();
+  return card;
+}
 
 
 // function renderCards(initialCards) {
