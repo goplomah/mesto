@@ -19,16 +19,31 @@ const titleInput = popupAddForm.querySelector(".form__input_name_title");
 const linkInput = popupAddForm.querySelector(".form__input_name_link");
 const popups = document.querySelectorAll(".popup");
 
+//создание копий классов валидации и её включение:
+
 const popupEditFormValidation = new FormValidation(classes, popupEditForm);
 const popupAddFormValidation = new FormValidation(classes, popupAddForm);
 
 popupEditFormValidation.enableValidation();
 popupAddFormValidation.enableValidation();
 
+const handleCardClick = (item) => {
+  popupWithImage.open(item);
+}
+
+// создание карточки:
+
+function createCard(item) {
+  const card = new Card(item, ".template__card", handleCardClick).generateCard();
+  return card;
+};
+
 const rendererSection = new Section({items: initialCards, renderer: createCard}, ".places__cards");
 rendererSection.rendererItems();
 
 const popupWithImage = new PopupWithImage('.popup_type_image');
+
+
 
 // закрытие модального окна по кнопке esc
 const closeEscPopup = (evt) => {
@@ -84,12 +99,6 @@ popupEditForm.addEventListener("submit", (item) => {
   closePopup(popupEdit);
 });
 
-// создание карточки:
-
-function createCard(item) {
-  const card = new Card(item, ".template__card", openPopup).generateCard();
-  return card;
-}
 
 
 // function renderCards(initialCards) {

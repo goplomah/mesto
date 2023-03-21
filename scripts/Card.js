@@ -1,10 +1,10 @@
 class Card {
-    constructor(cards, templateSelector, openPopup) {
+    constructor(cards, templateSelector, handleCardClick) {
         this._name=cards.name;
         this._link=cards.link;
         this._alt=cards.alt;
         this._templateSelector=templateSelector;
-        this._openPopup=openPopup;
+        this._handleCardClick=handleCardClick;
         this._imagePopup=document.querySelector(".popup_type_image");
         this._imageIntoImagePopup=this._imagePopup.querySelector(".popup__image");
         this._imageTitleIntoImagePopup=this._imagePopup.querySelector(".popup__text");
@@ -27,10 +27,7 @@ class Card {
         };
 
         _clickImage() {
-                this._imageIntoImagePopup.src = this._link;
-                this._imageIntoImagePopup.alt = this._name;
-                this._imageTitleIntoImagePopup.textContent = this._name;
-                this._openPopup(this._imagePopup);
+                this._handleCardClick({name: this._name, link: this._link });
         };
 
         _setEventListeners() {
