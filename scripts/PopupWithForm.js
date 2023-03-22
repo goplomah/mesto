@@ -30,4 +30,10 @@ export class PopupWithForm extends Popup {
         super.close();
         this._form.reset();
     }
+
+    setInputValues(data) {
+        this._inputs.forEach((input) => {
+            input.value = data[input.name];
+        })
+    }
 }

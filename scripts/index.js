@@ -4,6 +4,7 @@ import {classes, FormValidation} from "./FormValidation.js";
 import { Section } from "./Section.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { PopupWithForm } from "./PopupWithForm.js";
+import { UserInfo } from "./UserInfo.js";
 
 const listCard = document.querySelector(".places__cards");
 const popupEdit = document.querySelector(".popup_type_edit");
@@ -28,6 +29,15 @@ const popupAddFormValidation = new FormValidation(classes, popupAddForm);
 popupEditFormValidation.enableValidation();
 popupAddFormValidation.enableValidation();
 
+const nameElementSelector = '.profile__name';
+const discriptionElementSelector = '.profile__job'
+
+const userInfo = new UserInfo('.profile__name', '.profile__job');
+
+
+
+
+
 const handleCardClick = (name, link) => {
   popupWithImage.open(name, link);
 }
@@ -51,6 +61,13 @@ const handleAddCard = ({title, link}) => {
 
 const popupAddCard = new PopupWithForm('.popup_type_add', handleAddCard);
 popupAddCard.setEventListeners();
+
+const handleEditProfile = ({name, job}) => {
+  userInfo.setUserInfo({name, job});
+}
+
+const popupEditProfile = new PopupWithForm('.popup_type_edit', handleEditProfile);
+popupEditProfile.setEventListeners();
 
 // закрытие модального окна по кнопке esc
 // const closeEscPopup = (evt) => {
@@ -91,20 +108,22 @@ popupAddCard.setEventListeners();
 // заполнение input'ов информацией со странички:
 
 popupEditOpenButton.addEventListener("click", () => {
+  popupEditProfile.setInputValues(userInfo.getUserInfo());
   popupEditFormValidation.resetValidation();
-  openPopup(popupEdit);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+  popupEditProfile.open();
+  // openPopup(popupEdit);
+  // nameInput.value = profileName.textContent;
+  // jobInput.value = profileJob.textContent;
 });
 
 // сохраниние формы:
 
-popupEditForm.addEventListener("submit", (item) => {
-  item.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-  closePopup(popupEdit);
-});
+// popupEditForm.addEventListener("submit", (item) => {
+//   item.preventDefault();
+//   profileName.textContent = nameInput.value;
+//   profileJob.textContent = jobInput.value;
+//   closePopup(popupEdit);
+// });
 
 
 
