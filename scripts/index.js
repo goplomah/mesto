@@ -3,6 +3,7 @@ import {Card} from "./Card.js";
 import {classes, FormValidation} from "./FormValidation.js";
 import { Section } from "./Section.js";
 import { PopupWithImage } from "./PopupWithImage.js";
+import { PopupWithForm } from "./PopupWithForm.js";
 
 const listCard = document.querySelector(".places__cards");
 const popupEdit = document.querySelector(".popup_type_edit");
@@ -27,8 +28,8 @@ const popupAddFormValidation = new FormValidation(classes, popupAddForm);
 popupEditFormValidation.enableValidation();
 popupAddFormValidation.enableValidation();
 
-const handleCardClick = (item) => {
-  popupWithImage.open(item);
+const handleCardClick = (name, link) => {
+  popupWithImage.open(name, link);
 }
 
 // создание карточки:
@@ -42,43 +43,49 @@ const rendererSection = new Section({items: initialCards, renderer: createCard},
 rendererSection.rendererItems();
 
 const popupWithImage = new PopupWithImage('.popup_type_image');
+popupWithImage.setEventListeners();
 
+const handleAddCard = ({title, link}) => {
+  rendererSection.addItem(createCard({name: title, link}));
+}
 
+const popupAddCard = new PopupWithForm('.popup_type_add', handleAddCard);
+popupAddCard.setEventListeners();
 
 // закрытие модального окна по кнопке esc
-const closeEscPopup = (evt) => {
-  if (evt.key === 'Escape') {
-  closePopup(document.querySelector(".popup_opened"));
-  }
-};                                                          
+// const closeEscPopup = (evt) => {
+//   if (evt.key === 'Escape') {
+//   closePopup(document.querySelector(".popup_opened"));
+//   }
+// };                                                          
 
 // общая функция открытия модального окна:
 
-function openPopup(popup) {
-  document.addEventListener('keydown', closeEscPopup);
-  popup.classList.add("popup_opened");
-}                                                           
+// function openPopup(popup) {
+//   document.addEventListener('keydown', closeEscPopup);
+//   popup.classList.add("popup_opened");
+// }                                                           
 
 // общая функция закрытия модального окна:
 
-function closePopup(popup) {
-  document.removeEventListener('keydown', closeEscPopup);
-  popup.classList.remove("popup_opened");
-}                                                            
+// function closePopup(popup) {
+//   document.removeEventListener('keydown', closeEscPopup);
+//   popup.classList.remove("popup_opened");
+// }                                                            
 
 // закрытие любого модального окна по клику
 // на крестик или оверлею:
 
-popups.forEach((popup) => {
-  popup.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("popup_opened")) {
-      closePopup(popup);
-    }
-    if (evt.target.classList.contains("popup__close-btn")) {
-      closePopup(popup);
-    }
-  });
-  });                                                          
+// popups.forEach((popup) => {
+//   popup.addEventListener("mousedown", (evt) => {
+//     if (evt.target.classList.contains("popup_opened")) {
+//       closePopup(popup);
+//     }
+//     if (evt.target.classList.contains("popup__close-btn")) {
+//       closePopup(popup);
+//     }
+//   });
+//   });                                                          
   
 // открытие формы редактирования профиля и
 // заполнение input'ов информацией со странички:
@@ -113,20 +120,21 @@ popupEditForm.addEventListener("submit", (item) => {
 
 popupAddOpenButton.addEventListener("click", () => {
   popupAddFormValidation.resetValidation();
-  openPopup(popupAdd);
+  // openPopup(popupAdd);
+  popupAddCard.open();
 });
 
 // сохранение новой карточки на странице:
 
-popupAddForm.addEventListener("submit", (item) => {
-  item.preventDefault();
+// popupAddForm.addEventListener("submit", (item) => {
+//   item.preventDefault();
 
-  const addedCard = {
-    name: titleInput.value,
-    link: linkInput.value,
-  };
+//   const addedCard = {
+//     name: titleInput.value,
+//     link: linkInput.value,
+//   };
 
-  listCard.prepend(createCard(addedCard));
-  item.target.reset();
-  closePopup(popupAdd);
-});
+//   listCard.prepend(createCard(addedCard));
+//   item.target.reset();
+//   popupAddCard.close();
+// });
