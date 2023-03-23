@@ -11,7 +11,7 @@
       content="html, css, flex-box, grid layout, адаптивная вёрстка, макет в фигме, pop-up, java-script"
     />
     <meta name="author" content="Maks Subochev" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
     <link
       rel="icon"
       href="./images/favicons/favicon/favicon.ico"
@@ -23,7 +23,7 @@
       <header class="header">
         <a href="https://goplomah.github.io/mesto/" class="header__link">
           <img
-            src="./images/header__logo.svg"
+            src="<%=require('./images/header__logo.svg')%>"
             alt="логотип сайта место."
             class="header__logo"
           />
@@ -33,7 +33,7 @@
         <section class="profile">
           <div class="profile__wrapper">
             <img
-              src="./images/profile-avatar.png"
+              src="<%=require('./images/profile-avatar.png')%>"
               alt="Жак-Ив Кусто."
               class="profile__avatar"
             />
@@ -168,6 +168,6 @@
         </div>
       </div>
     </div>
-    <script type='module' src="./scripts/index.js" defer></script>
+    <script type='module' src="./pages/index.js" defer></script>
   </body>
 </html>

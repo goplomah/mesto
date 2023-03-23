@@ -1,32 +1,39 @@
+import spbImage from "../images/places__saint-petersburg(o).jpg";
+import kareliaImage from "../images/places__kareliya(o).jpg";
+import mountainParusImage from "../images/places__mountain-parus(o).jpg";
+import belogorieImage from "../images/places__belogore(o).jpg";
+import spbDistrictImage from "../images/places__kareliya-2(o).jpg";
+import taigaImage from "../images/places__leningradskaya-oblast(o).jpg";
+
 export const initialCards = [
   {
     name: "Санкт-Петербург",
-    link: "./images/places__saint-petersburg(o).jpg",
+    link: spbImage,
     alt: "развод Дворцового моста.",
   },
   {
     name: "Карелия",
-    link: "./images/places__kareliya(o).jpg",
+    link: kareliaImage,
     alt: "леса Карелии.",
   },
   {
     name: "Скала Парус",
-    link: "./images/places__mountain-parus(o).jpg",
+    link: mountainParusImage,
     alt: "скала похожая на парус.",
   },
   {
     name: "Белогорье",
-    link: "./images/places__belogore(o).jpg",
+    link: belogorieImage,
     alt: "храм, расположенный в меловых горах.",
   },
   {
     name: "Ленинградская область",
-    link: "./images/places__kareliya-2(o).jpg",
+    link: spbDistrictImage,
     alt: "деревянная дорога в лесу.",
   },
   {
     name: "Тайга",
-    link: "./images/places__leningradskaya-oblast(o).jpg",
+    link: taigaImage,
     alt: "заснеженные ели в лесу.",
   },
 ];
