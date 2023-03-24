@@ -5,9 +5,6 @@ class Card {
         this._alt=cards.alt;
         this._templateSelector=templateSelector;
         this._handleCardClick=handleCardClick;
-        this._imagePopup=document.querySelector(".popup_type_image");
-        this._imageIntoImagePopup=this._imagePopup.querySelector(".popup__image");
-        this._imageTitleIntoImagePopup=this._imagePopup.querySelector(".popup__text");
         this._deleteCard = this._deleteCard.bind(this);
         this._toggleLike = this._toggleLike.bind(this);
         this._clickImage = this._clickImage.bind(this);    }

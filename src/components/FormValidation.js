@@ -1,10 +1,4 @@
-const classes = {
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__send',
-    inactiveButtonClass: 'form__send_disabled',
-    inputErrorClass: 'form__input_type_error'
-  };
+import { classes } from "../scripts/classes";
 
 class FormValidation {
     constructor(classes, formElement) {
