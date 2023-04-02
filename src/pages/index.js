@@ -6,12 +6,20 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+import { Api } from '../components/Api.js';
 
 const popupEditOpenButton = document.querySelector(".button-edit");
 const popupEditForm = document.querySelector(".form_type_edit");
 const popupAddOpenButton = document.querySelector(".button-add");
 const popupAddForm = document.querySelector(".form_type_add");
 
+const api = new Api({
+  dataBase: 'https://mesto.nomoreparties.co/v1/cohort-63/',
+  headers: {
+    authorization: "4cedf714-dd26-4078-b00f-7c3db0c68c43",
+    "Content-Type": "application/json"
+  }
+});
 
 //создание копий классов валидации и её включение:
 
