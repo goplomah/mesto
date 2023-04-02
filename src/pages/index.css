@@ -22,7 +22,9 @@
 @import url(../blocks/places/__image-wrapper/places__image-wrapper.css);
 @import url(../blocks/places/__discription/places__discription.css);
 @import url(../blocks/places/__text/places__text.css);
+@import url(../blocks/places/__wrapper-like/places__wrapper-like.css);
 @import url(../blocks/places/__button-like/places__button-like.css);
+@import url(../blocks/places/__like-counter/places__like-counter.css);
 @import url(../blocks/places/__button-like/_active/places__button-like_active.css);
 @import url(../blocks/places/__button-trash/places__button-trash.css);
 @import url(../blocks/footer/footer.css);
