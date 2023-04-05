@@ -7,7 +7,9 @@ class Card {
         this._handleCardClick=handleCardClick;
         this._deleteCard = this._deleteCard.bind(this);
         this._toggleLike = this._toggleLike.bind(this);
-        this._clickImage = this._clickImage.bind(this);    }
+        this._clickImage = this._clickImage.bind(this);
+        this._likesCounter = cards.likes.length;
+        }
 
         _getTemplate() {
             const templateCard = document.querySelector(this._templateSelector).content.querySelector(".places__item");
@@ -50,6 +52,8 @@ class Card {
             this._setEventListeners();
             return this._element;
         };
+
+        
 }
 
 export {Card};

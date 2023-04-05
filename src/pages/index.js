@@ -58,7 +58,6 @@ function createCard(item) {
 };
 
 const rendererSection = new Section({items: [], renderer: createCard}, ".places__cards");
-// rendererSection.rendererItems();
 
 // копия класса модалки с картинкой:
 
@@ -68,9 +67,11 @@ popupWithImage.setEventListeners();
 // копия класса добавления карточки через модалку:
 
 const handleAddCard = ({title, link}) => {
+  popupAddCard.loading(true, 'Сохранение...')
   api.addCard({title, link})
     .then(data => {rendererSection.addItem(createCard(data));})
     .catch(err => console.log(`Упс...Что-то пошло не так: ${err}`))
+    .finally(() => {popupAddCard.loading(false, 'Создать')})
 }
 
 const popupAddCard = new PopupWithForm('.popup_type_add', handleAddCard);
@@ -79,11 +80,13 @@ popupAddCard.setEventListeners();
 // копия класса модалки редактирования профиля:
 
 const handleEditProfile = ({name, job}) => {
+  popupEditProfile.loading(true, 'Сохранение...');
   api.setUserInfo({name, job})
     .then(data => {
       userInfo.setUserInfo(data)
   })
     .catch(err => console.log(`Упс...Что-то пошло не так: ${err}`))
+    .finally(() => {popupEditProfile.loading(false, 'Сохранить')})
 }
 
 const popupEditProfile = new PopupWithForm('.popup_type_edit', handleEditProfile);
@@ -92,6 +95,7 @@ popupEditProfile.setEventListeners();
 //копия класса редактирования аватара:
 
 const handleEditAvatar = ({avatar}) => {
+  popupAvatar.loading(true, 'Сохранение...');
   api.updateAvatar({avatar})
   .then((avatar) => {
     userInfo.setUserInfo(avatar)
@@ -99,6 +103,7 @@ const handleEditAvatar = ({avatar}) => {
   .catch(err => {
     console.log(`Упс...что-то не так с ссылкой на аватар: ${err}`)
   })
+  .finally(() => {popupAvatar.loading(false, 'Сохранить')})
 }
 
 const popupAvatar = new PopupWithForm('.popup_type_avatar', handleEditAvatar);
@@ -118,6 +123,7 @@ popupAddOpenButton.addEventListener("click", () => {
 });
 
 popupAvatarOpenButton.addEventListener('click', () => {
+  popupAvatarFormValidation.resetValidation();
   popupAvatar.open();
 })
 

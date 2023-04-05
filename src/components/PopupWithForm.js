@@ -6,6 +6,7 @@ export class PopupWithForm extends Popup {
         this._submitForm = submitForm;
         this._form = this._popup.querySelector('.form');
         this._inputs = this._form.querySelectorAll('.form__input');
+        this._btn = this._popup.querySelector('.form__send')
     }
 
     _getInputValues() {
@@ -35,5 +36,13 @@ export class PopupWithForm extends Popup {
         this._inputs.forEach((input) => {
             input.value = data[input.name];
         })
+    }
+
+    loading(isLoading, loadingText) {
+        if (isLoading) {
+        this._btn.textContent = loadingText;
+        } else {
+            this._btn.textContent = loadingText;
+        }
     }
 }
