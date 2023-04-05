@@ -1,5 +1,5 @@
 import '../pages/index.css';
-import { initialCards } from "../scripts/cards.js";
+// import { initialCards } from "../scripts/cards.js";
 import {Card} from "../components/Card.js";
 import {classes, FormValidation} from "../components/FormValidation.js";
 import { Section } from "../components/Section.js";
@@ -78,7 +78,12 @@ popupAddCard.setEventListeners();
 // копия класса модалки редактирования профиля:
 
 const handleEditProfile = ({name, job}) => {
-  userInfo.setUserInfo({name, job});
+  // userInfo.setUserInfo({name, job});
+  api.setUserInfo({name, job})
+    .then(data => {
+      userInfo.setUserInfo(data)
+  })
+    .catch(err => console.log(`Упс...Что-то пошло не так: ${err}`))
 }
 
 const popupEditProfile = new PopupWithForm('.popup_type_edit', handleEditProfile);
