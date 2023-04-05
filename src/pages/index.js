@@ -14,7 +14,6 @@ const popupAddOpenButton = document.querySelector(".button-add");
 const popupAddForm = document.querySelector(".form_type_add");
 const popupAvatarForm = document.querySelector('.form_type_avatar');
 const popupAvatarOpenButton = document.querySelector('.profile__avatar-wrapper');
-// const popupAvatar = document.querySelector('.popup_type_avatar');
 
 const api = new Api({
   dataBase: 'https://mesto.nomoreparties.co/v1/cohort-63/',
@@ -78,7 +77,6 @@ popupAddCard.setEventListeners();
 // копия класса модалки редактирования профиля:
 
 const handleEditProfile = ({name, job}) => {
-  // userInfo.setUserInfo({name, job});
   api.setUserInfo({name, job})
     .then(data => {
       userInfo.setUserInfo(data)
@@ -91,8 +89,14 @@ popupEditProfile.setEventListeners();
 
 //копия класса редактирования аватара:
 
-const handleEditAvatar = ({link}) => {
-  userInfo.setUserInfo({link});
+const handleEditAvatar = ({avatar}) => {
+  api.updateAvatar({avatar})
+  .then((avatar) => {
+    userInfo.setUserInfo(avatar)
+  })
+  .catch(err => {
+    console.log(`Упс...что-то не так с ссылкой на аватар: ${err}`)
+  })
 }
 
 const popupAvatar = new PopupWithForm('.popup_type_avatar', handleEditAvatar);

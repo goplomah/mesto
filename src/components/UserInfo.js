@@ -8,8 +8,7 @@ export class UserInfo {
     getUserInfo() {
         return {
             name: this._nameElement.textContent,
-            job: this._discriptionElement.textContent,
-
+            job: this._discriptionElement.textContent
         };
     };
 

@@ -22,7 +22,7 @@ export class Api {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                name: name,
+                name,
                 about: job
             })
         }).then(res => {
@@ -30,6 +30,20 @@ export class Api {
             return Promise.reject(`Упс... Ошибка: ${res.status}`);
         })
     }
+
+    updateAvatar({avatar}) {
+        return fetch(`${this._dataBase}users/me/avatar`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({
+                avatar
+            })
+        }).then(res => {
+            if(res.ok) {return res.json();}
+            return Promise.reject(`Упс... Ошибка: ${res.status}`);
+    })
+}
+
 
     addCard({name, link}) {
         return fetch(`${this._dataBase}cards`, {
@@ -41,4 +55,6 @@ export class Api {
             })
         })
     }
+
+   
 }
