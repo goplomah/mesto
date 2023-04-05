@@ -12,6 +12,9 @@ const popupEditOpenButton = document.querySelector(".button-edit");
 const popupEditForm = document.querySelector(".form_type_edit");
 const popupAddOpenButton = document.querySelector(".button-add");
 const popupAddForm = document.querySelector(".form_type_add");
+const popupAvatarForm = document.querySelector('.form_type_avatar');
+const popupAvatarOpenButton = document.querySelector('.profile__avatar-wrapper');
+// const popupAvatar = document.querySelector('.popup_type_avatar');
 
 const api = new Api({
   dataBase: 'https://mesto.nomoreparties.co/v1/cohort-63/',
@@ -21,6 +24,15 @@ const api = new Api({
   }
 });
 
+//инициализация начальных данных с сервера:
+
+Promise.all([api.getUserInfo(), api.getInitCard()])
+  .then(([me, cards]) => {
+    userInfo.setUserInfo(me);
+    rendererSection.rendererItems(cards);
+  })
+  .catch((err) => console.log(`Упс...Ошибка получения данных с сервера: ${err}`));
+
 //создание копий классов валидации и её включение:
 
 const popupEditFormValidation = new FormValidation(classes, popupEditForm);
@@ -29,9 +41,12 @@ popupEditFormValidation.enableValidation();
 const popupAddFormValidation = new FormValidation(classes, popupAddForm);
 popupAddFormValidation.enableValidation();
 
+const popupAvatarFormValidation = new FormValidation(classes, popupAvatarForm);
+popupAvatarFormValidation.enableValidation();
+
 //копия класса заполнения информацией профиля:
 
-const userInfo = new UserInfo('.profile__name', '.profile__job');
+const userInfo = new UserInfo('.profile__name', '.profile__job', '.profile__avatar');
 
 // создание карточки, копия класса секции и отрисовка карточек:
 const handleCardClick = (name, link) => {
@@ -43,8 +58,8 @@ function createCard(item) {
   return card;
 };
 
-const rendererSection = new Section({items: initialCards, renderer: createCard}, ".places__cards");
-rendererSection.rendererItems();
+const rendererSection = new Section({items: [], renderer: createCard}, ".places__cards");
+// rendererSection.rendererItems();
 
 // копия класса модалки с картинкой:
 
@@ -60,7 +75,7 @@ const handleAddCard = ({title, link}) => {
 const popupAddCard = new PopupWithForm('.popup_type_add', handleAddCard);
 popupAddCard.setEventListeners();
 
-// копия ксласса модалки редактирования профиля:
+// копия класса модалки редактирования профиля:
 
 const handleEditProfile = ({name, job}) => {
   userInfo.setUserInfo({name, job});
@@ -68,6 +83,15 @@ const handleEditProfile = ({name, job}) => {
 
 const popupEditProfile = new PopupWithForm('.popup_type_edit', handleEditProfile);
 popupEditProfile.setEventListeners();
+
+//копия класса редактирования аватара:
+
+const handleEditAvatar = ({link}) => {
+  userInfo.setUserInfo({link});
+}
+
+const popupAvatar = new PopupWithForm('.popup_type_avatar', handleEditAvatar);
+popupAvatar.setEventListeners();
 
 // слушатели кнопок открытия модалок:
 
@@ -81,3 +105,8 @@ popupAddOpenButton.addEventListener("click", () => {
   popupAddFormValidation.resetValidation();
   popupAddCard.open();
 });
+
+popupAvatarOpenButton.addEventListener('click', () => {
+  popupAvatar.open();
+})
+
