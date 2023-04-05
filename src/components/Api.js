@@ -45,16 +45,18 @@ export class Api {
 }
 
 
-    addCard({name, link}) {
+    addCard({title, link}) {
         return fetch(`${this._dataBase}cards`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                name,
+                name: title,
                 link
             })
-        })
-    }
+        }).then(res => {
+            if(res.ok) {return res.json();}
+            return Promise.reject(`Упс... Ошибка: ${res.status}`);
+    })
+}
 
-   
 }

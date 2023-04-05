@@ -68,7 +68,9 @@ popupWithImage.setEventListeners();
 // копия класса добавления карточки через модалку:
 
 const handleAddCard = ({title, link}) => {
-  rendererSection.addItem(createCard({name: title, link}));
+  api.addCard({title, link})
+    .then(data => {rendererSection.addItem(createCard(data));})
+    .catch(err => console.log(`Упс...Что-то пошло не так: ${err}`))
 }
 
 const popupAddCard = new PopupWithForm('.popup_type_add', handleAddCard);
