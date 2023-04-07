@@ -1,5 +1,5 @@
 class Card {
-    constructor(cards, templateSelector, handleCardClick) {
+    constructor(cards, templateSelector, userId, handleCardClick) {
         this._name=cards.name;
         this._link=cards.link;
         this._alt=cards.alt;
@@ -8,7 +8,15 @@ class Card {
         this._deleteCard = this._deleteCard.bind(this);
         this._toggleLike = this._toggleLike.bind(this);
         this._clickImage = this._clickImage.bind(this);
-        this._likesCounter = cards.likes.length;
+        this._likes = cards.likes;
+        this._ownerId = cards.owner._id;
+        this._userId = userId;
+        }
+
+        _checkUserId() {
+            if (this._ownerId !== this._userId) {
+                this._buttonDelete.remove();
+            }
         }
 
         _getTemplate() {
@@ -38,6 +46,8 @@ class Card {
             .addEventListener("click", this._toggleLike);
 
             this._cardImage.addEventListener('click', this._clickImage);
+
+            this._checkUserId();
         };
 
         generateCard() {
@@ -48,6 +58,7 @@ class Card {
             this._cardName=this._element.querySelector(".places__text");
             this._cardName.textContent=this._name;
             this._buttonLike=this._element.querySelector(".places__button-like");
+            this._buttonDelete=this._element.querySelector('.places__button-trash');
             
             this._setEventListeners();
             return this._element;

@@ -14,6 +14,7 @@ const popupAddOpenButton = document.querySelector(".button-add");
 const popupAddForm = document.querySelector(".form_type_add");
 const popupAvatarForm = document.querySelector('.form_type_avatar');
 const popupAvatarOpenButton = document.querySelector('.profile__avatar-wrapper');
+let userId = null;
 
 const api = new Api({
   dataBase: 'https://mesto.nomoreparties.co/v1/cohort-63/',
@@ -27,6 +28,7 @@ const api = new Api({
 
 Promise.all([api.getUserInfo(), api.getInitCard()])
   .then(([me, cards]) => {
+    userId = me._id;
     userInfo.setUserInfo(me);
     rendererSection.rendererItems(cards);
   })
@@ -53,7 +55,7 @@ const handleCardClick = (name, link) => {
 }
 
 function createCard(item) {
-  const card = new Card(item, ".template__card", handleCardClick).generateCard();
+  const card = new Card(item, ".template__card", userId, handleCardClick).generateCard();
   return card;
 };
 

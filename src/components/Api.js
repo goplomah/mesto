@@ -59,4 +59,36 @@ export class Api {
     })
 }
 
+    addLike(_id) {
+        return fetch(`${this._dataBase}cards/${_id}/likes`, {
+            method: 'PUT',
+            headers: this._headers,
+        })
+        .then(res => {
+            if(res.ok) {return res.json();}
+            return Promise.reject(`Упс... Ошибка: ${res.status}`);
+    })
+    }
+    
+    deleteLike(_id) {
+        return fetch(`${this._dataBase}cards/${_id}/likes`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(res => {
+            if(res.ok) {return res.json();}
+            return Promise.reject(`Упс... Ошибка: ${res.status}`);
+    })
+    }
+
+    removeCard(cardId) {
+        return fetch(`${this._dataBase}cards/${cardId}`, {
+            method: "DELETE",
+            headers: this._headers
+         })
+         .then(res => {
+            if(res.ok) {return res.json();}
+            return Promise.reject(`Упс... Ошибка: ${res.status}`);
+    })
+    }
 }
