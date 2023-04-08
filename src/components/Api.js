@@ -81,8 +81,8 @@ export class Api {
     })
     }
 
-    removeCard(cardId) {
-        return fetch(`${this._dataBase}cards/${cardId}`, {
+    removeCard(_id) {
+        return fetch(`${this._dataBase}cards/${_id}`, {
             method: "DELETE",
             headers: this._headers
          })

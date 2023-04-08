@@ -7,6 +7,7 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Api } from '../components/Api.js';
+import { PopupWithConfirm } from '../components/PopupwithConfirm';
 
 const popupEditOpenButton = document.querySelector(".button-edit");
 const popupEditForm = document.querySelector(".form_type_edit");
@@ -15,6 +16,7 @@ const popupAddForm = document.querySelector(".form_type_add");
 const popupAvatarForm = document.querySelector('.form_type_avatar');
 const popupAvatarOpenButton = document.querySelector('.profile__avatar-wrapper');
 let userId = null;
+// const popupDeleteCardOpenButton = document.querySelector('.form_send');
 
 const api = new Api({
   dataBase: 'https://mesto.nomoreparties.co/v1/cohort-63/',
@@ -54,8 +56,12 @@ const handleCardClick = (name, link) => {
   popupWithImage.open(name, link);
 }
 
+// const handleTrashClick = (cardId, card) => {
+//   popupDeleteCard.open(cardId, card);
+// }
+
 function createCard(item) {
-  const card = new Card(item, ".template__card", userId, handleCardClick).generateCard();
+  const card = new Card(item, ".template__card", userId, handleCardClick,).generateCard();
   return card;
 };
 
@@ -111,6 +117,23 @@ const handleEditAvatar = ({avatar}) => {
 const popupAvatar = new PopupWithForm('.popup_type_avatar', handleEditAvatar);
 popupAvatar.setEventListeners();
 
+// копия класса модального окна удаления карточки:
+
+// const handleSubmitConfirm = (cardId, card) => {
+//   popupDeleteCard.loading(true, 'Удаление...');
+//   api.removeCard(cardId)
+//     .then(() => {
+//       card.remove();
+//     })
+//     .catch(err => {
+//       console.log(`Упс...что-то не так с ссылкой на аватар: ${err}`)
+//     })
+//     .finally(() => {popupDeleteCard.loading(false, 'Да')})
+// }
+
+// const popupDeleteCard = new PopupWithConfirm('.popup_type_delete', handleSubmitConfirm);
+// popupDeleteCard.setEventListeners();
+
 // слушатели кнопок открытия модалок:
 
 popupEditOpenButton.addEventListener("click", () => {
@@ -128,4 +151,3 @@ popupAvatarOpenButton.addEventListener('click', () => {
   popupAvatarFormValidation.resetValidation();
   popupAvatar.open();
 })
-
