@@ -59,9 +59,27 @@ const handleCardClick = (name, link) => {
 // const handleTrashClick = (cardId, card) => {
 //   popupDeleteCard.open(cardId, card);
 // }
+const handleLikeClick = (_id, isLiked, addLike, removeLike, setLikeCounter) => {
+  if (isLiked) {
+    api.deleteLike(_id)
+    .then((data) => {
+      console.log(data);
+      setLikeCounter(data);
+      removeLike();})
+    .catch(err => alert(`Упс...Что-то пошло не так: ${err}`))
+  } else {
+    api.addLike(_id)
+    .then((data) => {
+      console.log(data);
+      setLikeCounter(data);
+      addLike();})
+    .catch(err => alert(`Упс...Что-то пошло не так: ${err}`))
+  }
+  console.log(isLiked);
+}
 
 function createCard(item) {
-  const card = new Card(item, ".template__card", userId, handleCardClick,).generateCard();
+  const card = new Card(item, ".template__card", userId, handleCardClick, handleLikeClick).generateCard();
   return card;
 };
 
