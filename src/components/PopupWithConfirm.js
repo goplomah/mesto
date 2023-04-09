@@ -1,36 +1,33 @@
-// import { Popup } from "./Popup.js";
+import { Popup } from "./Popup.js";
 
-// export class PopupWithConfirm extends Popup {
-//     constructor(popupSelector, submitConfirm) {
-//         super(popupSelector);
-//         this._submitConfirm = submitConfirm;
-//         this._form = this._popup.querySelector('.form');
-//     }
+export class PopupWithConfirm extends Popup {
+    constructor(popupSelector, submitForm) {
+        super(popupSelector);
+        this._submitForm = submitForm;
+        this._form = this._popup.querySelector('.form');
+        this._btn = this._popup.querySelector('.form__send');
+    }
 
-//     // _clickSubmit(evt) {
-//     //     evt.preventDefault();
-//     //     this._submitConfirm({cardId: this._cardId, card: this._card});
-//     // }
+    setEventListeners() {
+        this._form.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+            this._submitForm(this._id, this._element);
+        });
+        super.setEventListeners();
+    }
 
-//     setEventListeners() {
-//         this._form.addEventListener('submit', (evt) => {
-//             evt.preventDefault();
-//             this._submitConfirm({cardId: this._cardId, card: this._card});
-//         });
-//         super.setEventListeners;
-//     }
 
-//     loading(isLoading, loadingText) {
-//         if (isLoading) {
-//         this._btn.textContent = loadingText;
-//         } else {
-//             this._btn.textContent = loadingText;
-//         }
-//     }
+    open(_id, element) {
+        super.open();
+        this._id = _id;
+        this._element = element;
+    }
 
-//     open(cardId, card) {
-//         super.open();
-//         this._cardId = cardId;
-//         this._card = card;
-//     }
-// }
+    loading(isLoading, loadingText) {
+        if (isLoading) {
+        this._btn.textContent = loadingText;
+        } else {
+            this._btn.textContent = loadingText;
+        }
+    }
+}
