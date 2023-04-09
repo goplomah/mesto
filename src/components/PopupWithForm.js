@@ -37,12 +37,4 @@ export class PopupWithForm extends Popup {
             input.value = data[input.name];
         })
     }
-
-    loading(isLoading, loadingText) {
-        if (isLoading) {
-        this._btn.textContent = loadingText;
-        } else {
-            this._btn.textContent = loadingText;
-        }
-    }
 }

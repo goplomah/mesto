@@ -7,13 +7,15 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Api } from '../components/Api.js';
 import { PopupWithConfirm } from '../components/PopupwithConfirm.js';
+import {
+  popupEditOpenButton, 
+  popupEditForm, 
+  popupAddOpenButton, 
+  popupAddForm, 
+  popupAvatarForm, 
+  popupAvatarOpenButton 
+  } from "../utils/constants.js";
 
-const popupEditOpenButton = document.querySelector(".button-edit");
-const popupEditForm = document.querySelector(".form_type_edit");
-const popupAddOpenButton = document.querySelector(".button-add");
-const popupAddForm = document.querySelector(".form_type_add");
-const popupAvatarForm = document.querySelector('.form_type_avatar');
-const popupAvatarOpenButton = document.querySelector('.profile__avatar-wrapper');
 let userId = null;
 
 const api = new Api({
