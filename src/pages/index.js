@@ -1,5 +1,4 @@
 import '../pages/index.css';
-// import { initialCards } from "../scripts/cards.js";
 import {Card} from "../components/Card.js";
 import {classes, FormValidation} from "../components/FormValidation.js";
 import { Section } from "../components/Section.js";
@@ -57,7 +56,6 @@ const handleCardClick = (name, link) => {
 
 const handleTrashClick = (_id, card) => {
   popupDeleteCard.open(_id, card);
-  console.log(_id, card);
 }
 
 const handleLikeClick = (_id, isLiked, addLike, removeLike, setLikeCounter) => {
@@ -136,7 +134,6 @@ popupAvatar.setEventListeners();
 // копия класса модального окна удаления карточки:
 
 const handleSubmitConfirm = (_id, card) => {
-  console.log(_id, card);
   popupDeleteCard.loading(true, 'Удаление...');
   api.removeCard(_id)
     .then(() => {

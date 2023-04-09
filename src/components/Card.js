@@ -5,7 +5,6 @@ class Card {
         this._alt=cards.alt;
         this._templateSelector=templateSelector;
         this._handleCardClick=handleCardClick;
-        // this._deleteCard = this._deleteCard.bind(this);
         this._handleLikeClickOnImg = this._handleLikeClickOnImg.bind(this);
         this._clickImage = this._clickImage.bind(this);
         this._likes = cards.likes;
@@ -30,10 +29,6 @@ class Card {
 
             return templateCard;
         };
-
-        // _deleteCard() {
-        //     this._element.remove();
-        // };
 
         _clickTrash() {
             this._handleTrashClick(this._id, this._element);
@@ -67,7 +62,6 @@ class Card {
 
         _setEventListeners() {
             this._buttonDelete.addEventListener('click', this._clickTrash);
-            // .addEventListener("click", this._deleteCard);
 
             this._buttonLike
             .addEventListener("click", this._handleLikeClickOnImg);
@@ -95,10 +89,7 @@ class Card {
             
             this._setEventListeners();
             return this._element;
-        };
-
-        
-        
+        }; 
 }
 
 export {Card};

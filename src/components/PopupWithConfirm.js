@@ -5,7 +5,6 @@ export class PopupWithConfirm extends Popup {
         super(popupSelector);
         this._submitForm = submitForm;
         this._form = this._popup.querySelector('.form');
-        this._btn = this._popup.querySelector('.form__send');
     }
 
     setEventListeners() {
@@ -21,13 +20,5 @@ export class PopupWithConfirm extends Popup {
         super.open();
         this._id = _id;
         this._element = element;
-    }
-
-    loading(isLoading, loadingText) {
-        if (isLoading) {
-        this._btn.textContent = loadingText;
-        } else {
-            this._btn.textContent = loadingText;
-        }
     }
 }
