@@ -22,7 +22,6 @@ export class PopupWithForm extends Popup {
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._submitForm(this._getInputValues());
-            this.close();
         });
         super.setEventListeners();
     };
@@ -36,5 +35,13 @@ export class PopupWithForm extends Popup {
         this._inputs.forEach((input) => {
             input.value = data[input.name];
         })
+    }
+
+    loading(isLoading, loadingText) {
+        if (isLoading) {
+        this._btn.textContent = loadingText;
+        } else {
+            this._btn.textContent = loadingText;
+        }
     }
 }

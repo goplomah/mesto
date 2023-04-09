@@ -93,7 +93,10 @@ popupWithImage.setEventListeners();
 const handleAddCard = ({title, link}) => {
   popupAddCard.loading(true, 'Сохранение...')
   api.addCard({title, link})
-    .then(data => {rendererSection.addItem(createCard(data));})
+    .then(data => {
+      rendererSection.addItem(createCard(data));
+      popupAddCard.close();
+    })
     .catch(err => console.log(`Упс...Что-то пошло не так: ${err}`))
     .finally(() => {popupAddCard.loading(false, 'Создать')})
 }
@@ -107,7 +110,8 @@ const handleEditProfile = ({name, job}) => {
   popupEditProfile.loading(true, 'Сохранение...');
   api.setUserInfo({name, job})
     .then(data => {
-      userInfo.setUserInfo(data)
+      userInfo.setUserInfo(data);
+      popupEditProfile.close();
   })
     .catch(err => console.log(`Упс...Что-то пошло не так: ${err}`))
     .finally(() => {popupEditProfile.loading(false, 'Сохранить')})
@@ -122,7 +126,8 @@ const handleEditAvatar = ({avatar}) => {
   popupAvatar.loading(true, 'Сохранение...');
   api.updateAvatar({avatar})
   .then((avatar) => {
-    userInfo.setUserInfo(avatar)
+    userInfo.setUserInfo(avatar);
+    popupAvatar.close();
   })
   .catch(err => {
     console.log(`Упс...что-то не так с ссылкой на аватар: ${err}`)
@@ -139,7 +144,7 @@ const handleSubmitConfirm = (_id, card) => {
   popupDeleteCard.loading(true, 'Удаление...');
   api.removeCard(_id)
     .then(() => {
-      card.remove();
+      card();
       popupDeleteCard.close();
     })
     .catch(err => {

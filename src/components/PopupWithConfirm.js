@@ -22,4 +22,12 @@ export class PopupWithConfirm extends Popup {
         this._id = _id;
         this._element = element;
     }
+
+    loading(isLoading, loadingText) {
+        if (isLoading) {
+        this._btn.textContent = loadingText;
+        } else {
+            this._btn.textContent = loadingText;
+        }
+    }
 }

@@ -30,12 +30,4 @@ export class Popup {
                 }
               });
     }
-
-    loading(isLoading, loadingText) {
-        if (isLoading) {
-        this._btn.textContent = loadingText;
-        } else {
-            this._btn.textContent = loadingText;
-        }
-    }
 }

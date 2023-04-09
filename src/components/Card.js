@@ -16,6 +16,7 @@ class Card {
         this._likeCounter = cards.likes.length;
         this._clickTrash = this._clickTrash.bind(this);
         this._handleTrashClick = handleTrashClick.bind(this);
+        this._deleteCard = this._deleteCard.bind(this);
         }
         
         _checkUserId() {
@@ -30,9 +31,12 @@ class Card {
             return templateCard;
         };
 
+        _deleteCard() {
+            this._element.remove();
+        }
+
         _clickTrash() {
-            this._handleTrashClick(this._id, this._element);
-            console.log(this._id, this._element);
+            this._handleTrashClick(this._id, this._deleteCard);
         }
 
         _setLikeCounter(data) {
